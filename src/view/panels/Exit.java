@@ -51,7 +51,8 @@ public class Exit extends JPanel {
 		saida.setBounds(20, 130, 400, 40);
 		this.add(saida);
 
-		if(!canExit()) {
+		/* DEVEMOS APAGAR OS ARQUIVOS DECRIPTADOS E ENCERRAR O SISTEMA*/
+		/*if(!canExit()) {
 			msgSaida.setText("Sua senha está vencida. " +
 					"Para sair, é necessário ter uma senha pessoal" +
 					" válida para o próximo acesso. Pressione o botão " +
@@ -67,7 +68,7 @@ public class Exit extends JPanel {
 			sairBtn.setBounds(130, 280, 100, 30);
 			sairBtn.addActionListener(new SairListener());
 			this.add(sairBtn);
-		}
+		}*/
 
 		JButton voltarBtn = new JButton("Voltar");
 		voltarBtn.setBounds(20, 280, 100, 30);

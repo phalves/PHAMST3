@@ -42,7 +42,7 @@ public class MainFrame extends JFrame {
 		dbUtils.connect();
 		dbUtils.logMessage(1001);
 		dbUtils.disconnect();
-		new MainFrame("[INF1416] - T1");
+		new MainFrame("[INF1416] - P1");
 	}
 	
 }

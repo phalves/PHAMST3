@@ -18,7 +18,7 @@ public class PasswordTreeBrowser {
 		if (passwdTree.getChildren() == null) {
 			possiblePasswds.add(possiblePasswd + passwdTree.getPhoneme());
 		} else {
-			for (int i = 0; i < 4; i++) {
+			for (int i = 0; i < 2; i++) {
 				browse(possiblePasswd + passwdTree.getPhoneme(), passwdTree.getChildren()[i]);
 			}
 		}

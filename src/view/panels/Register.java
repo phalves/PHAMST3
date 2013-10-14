@@ -117,7 +117,7 @@ public class Register extends JPanel {
 		ArrayList<String> fonemas = new ArrayList<String>();
 		BufferedReader in = null;
 		try {
-			in = new BufferedReader(new FileReader("src/fonemas.txt"));
+			in = new BufferedReader(new FileReader("src/numeros.txt"));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

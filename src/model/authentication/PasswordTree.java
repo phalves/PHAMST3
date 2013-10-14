@@ -17,17 +17,17 @@ public class PasswordTree {
 		return this.children;
 	}
 	
-	public void appendChildren(String[] phonemes) {
+	public void appendChildren(String[] numbers) {
 		
 		if (children == null) {
 			children = new PasswordTree[4];
 			
-			for (int i = 0; i < 4; i++) {
-				children[i] = new PasswordTree(phonemes[i]);
+			for (int i = 0; i < 2; i++) {
+				children[i] = new PasswordTree(numbers[i]);
 			}
 		} else {
-			for (int i = 0; i < 4; i++) {
-				children[i].appendChildren(phonemes);
+			for (int i = 0; i < 2; i++) {
+				children[i].appendChildren(numbers);
 			}
 		}
 	}

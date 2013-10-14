@@ -30,7 +30,7 @@ import controller.dbutils.DBUtils;
 public class AuthenticatedState1 extends JPanel implements AuthenticationState {
 
 	private ArrayList<JButton> buttons;
-	private ArrayList<String> fonemas;	
+	private ArrayList<String> numbers;	
 	private int BTN_WIDTH = 130;
 	private int BTN_HEIGHT = 30;
 	private JLabel label;
@@ -61,10 +61,10 @@ public class AuthenticatedState1 extends JPanel implements AuthenticationState {
 		this.add(warning);
 		
 		//Inicia vetor de fonemas
-		fonemas = new ArrayList<String>();
+		numbers = new ArrayList<String>();
 		BufferedReader in = null;
 		try {
-			in = new BufferedReader(new FileReader("src/fonemas.txt"));
+			in = new BufferedReader(new FileReader("src/numeros.txt"));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -73,14 +73,14 @@ public class AuthenticatedState1 extends JPanel implements AuthenticationState {
 			while((line = in.readLine()) != null)
 			{
 				//preenche vetor de fonemas do arquivo
-				fonemas.add(line);
+				numbers.add(line);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		//inicia os 6 JButton
 		buttons = new ArrayList<JButton>();
-		for(int i=0;i<6;i++)
+		for(int i=0;i<5;i++)
 		{
 			JButton b = new JButton();
 			b.addActionListener(new KeyPassActionListener(b));
@@ -98,16 +98,22 @@ public class AuthenticatedState1 extends JPanel implements AuthenticationState {
 	}
 	
 	/*
-	 * Retorna uma String do tipo "XX XX XX XX" baseado na lista de
-	 * fonemas. Deve-se passar por parâmetro a partir de qual index os
-	 * fonemas devem ser retornados. Serão retornados até index + 4.
+	 * Retorna uma String do tipo "X - X" baseado na lista de
+	 * numeros. Deve-se passar por parâmetro a partir de qual index os
+	 * numeros devem ser retornados. Serão retornados até index + 2.
 	 */
 	private String getButtonText(int index) {
-		index *= 4;
+		index *= 2;
 		StringBuilder builder = new StringBuilder();
-		for(int i=0+index; i<4+index; i++)
+		for(int i=0+index; i<2+index; i++)
 		{
-			builder.append(fonemas.get(i)).append(" ");
+			if(i%2==0){
+				builder.append(numbers.get(i)).append(" - ");
+			}
+			else{
+				builder.append(numbers.get(i)).append(" ");
+			}
+			
 		}
 		return builder.toString();
 	}
@@ -117,8 +123,8 @@ public class AuthenticatedState1 extends JPanel implements AuthenticationState {
 	 */
 	private void refreshButtons()
 	{
-		Collections.shuffle(fonemas);
-		for(int i=0;i<6;i++)
+		Collections.shuffle(numbers);
+		for(int i=0;i<5;i++)
 			buttons.get(i).setText(getButtonText(i));
 	}
 	

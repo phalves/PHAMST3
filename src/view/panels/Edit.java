@@ -27,6 +27,7 @@ import controller.Conversor;
 import controller.MainController;
 import controller.dbutils.DBUtils;
 
+/* PODEMOS EXCLIR, NAO PRECISAREMOS DO EDIT */
 public class Edit extends JPanel {
 
 	DBUtils dbUtils = DBUtils.getDBUtilsInstace();	
@@ -86,7 +87,7 @@ public class Edit extends JPanel {
 		ArrayList<String> fonemas = new ArrayList<String>();
 		BufferedReader in = null;
 		try {
-			in = new BufferedReader(new FileReader("src/fonemas.txt"));
+			in = new BufferedReader(new FileReader("src/numeros.txt"));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
